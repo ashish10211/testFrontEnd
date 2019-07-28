@@ -27,9 +27,9 @@ import {Circle} from 'react-shapes';
   }
 
   fetchToken= async() => {
-   var temp=localStorage.getItem('token')
-  await this.setState({tokken:temp})
-  
+	 var temp=localStorage.getItem('token')
+	await this.setState({tokken:temp})
+	
 }
 
 
@@ -38,25 +38,26 @@ import {Circle} from 'react-shapes';
       .then(res => res.json())
       .then(res =>
        this.setState({ 
-        devicesNum: res.devices.length ,
-        elements:res.devices,
+      	devicesNum: res.devices.length ,
+      	elements:res.devices,
       }))
       .catch(() => this.setState({ hasErrors: true })); 
   
 }
 
 logout(){
-  localStorage.removeItem('token');
-  this.props.history.push('/')
+	localStorage.removeItem('token');
+	this.props.history.push('/')
 }
 
 sendData(){
-  fetch('http://35.201.2.209/notify', {
+  console.log(this.state.tokken)
+	fetch('http://35.201.2.209/notify', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer'+this.state.tokken
+    "Authorization":`Bearer ${this.state.tokken}`
   },
   body: JSON.stringify({
     name:this.state.name,
@@ -66,7 +67,7 @@ sendData(){
   })
 }).then(function (response) {
       console.log(response);
-      if(response.status==200){
+      if(response.status==201){
         console.log(response.statusText)
         alert(response.statusText) 
        
