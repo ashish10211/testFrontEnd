@@ -18,6 +18,7 @@ import {Circle} from 'react-shapes';
   }
 
   componentWillMount(){
+
     this.fetchdata();
      this.fetchToken();
      this.interval = setInterval(() => {
@@ -26,9 +27,9 @@ import {Circle} from 'react-shapes';
   }
 
   fetchToken= async() => {
-	 var temp=localStorage.getItem('token')
-	await this.setState({tokken:temp})
-	
+   var temp=localStorage.getItem('token')
+  await this.setState({tokken:temp})
+  
 }
 
 
@@ -37,25 +38,25 @@ import {Circle} from 'react-shapes';
       .then(res => res.json())
       .then(res =>
        this.setState({ 
-      	devicesNum: res.devices.length ,
-      	elements:res.devices,
+        devicesNum: res.devices.length ,
+        elements:res.devices,
       }))
       .catch(() => this.setState({ hasErrors: true })); 
-  console.log(this.state.elements)
+  
 }
 
 logout(){
-	localStorage.removeItem('token');
-	this.props.history.push('/')
+  localStorage.removeItem('token');
+  this.props.history.push('/')
 }
 
 sendData(){
-	fetch('http://35.201.2.209/notify', {
+  fetch('http://35.201.2.209/notify', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer'+[this.state.tokken]
+    'Authorization': 'Bearer'+this.state.tokken
   },
   body: JSON.stringify({
     name:this.state.name,
@@ -66,18 +67,18 @@ sendData(){
 }).then(function (response) {
       console.log(response);
       if(response.status==200){
-        console.log(response.message)
-        alert(response.message) 
+        console.log(response.statusText)
+        alert(response.statusText) 
        
       }
       else if (response.status==401){
-         console.log(response.message)
-        alert(response.message)
+         console.log(response.statusText)
+        alert(response.statusText)
       
     }
     else if(response.status==400){
-       console.log(response.message)
-      alert(response.message)
+       console.log(response.statusText)
+      alert(response.statusText)
     }
 
   })
@@ -113,7 +114,7 @@ sendData(){
         <button
             type="button"
             className="notify-btn"
-             onClick={this.sendData.bind(this)}
+            onClick={this.sendData.bind(this)}
             ><font color="black">NOTIFY</font></button>
             <button
             type="button"
