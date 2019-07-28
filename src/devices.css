@@ -1,0 +1,93 @@
+.inner-container1{
+	background-color: #FF4F00;
+	width:95%;
+	margin: auto;
+    margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px; 
+}
+.inner-container{
+background-color: grey;
+padding-top:50px;
+padding-bottom:30%;
+height:100vh;
+
+}
+.box{
+	   display: flex;
+    flex-direction: column;
+    text-align: center;
+    height:500px;
+
+}
+.panel{
+	display: flex;
+	margin-top:170px;  
+	width:100%;
+	height:50px;
+	background: transparent;
+	
+	
+}
+.notify-btn{
+	font-weight: bold;
+	border-radius: 8px;
+	margin-top:0px; 
+	height:40px;
+	padding: 2px 30px;
+     background-color: white; 
+    border: 0;
+    font-size: 18px; 
+    font-family: Oxygen, sans-serif;
+    border: 2px solid ;
+    transition: background-color 0.3s ease-out;
+    cursor: pointer;
+    max-width: 120px;
+    margin-left: 450px;
+    text-align: center;
+   
+
+}
+.logout-btn{
+	border-radius: 8px;
+	margin-top:0px; 
+	height:40px;
+	padding: 2px 30px;
+     background-color: grey; 
+    border: 2;
+    font-size: 18px;
+    font-family: Oxygen, sans-serif;
+    border: 2px solid ;
+    transition: background-color 0.3s ease-out;
+    cursor: pointer;
+    max-width: 150px;
+    margin-left: 40px;
+    text-align: center;
+    font-weight: bold;
+   
+}
+.device-info{
+	font-weight: bold;
+	font-size: 80px;
+	text-align: center;
+	margin-top: 20px;
+	flex-direction: column;
+}
+.text{
+	font-weight: bold;
+	font-size: 20px;
+	text-align: center;
+	padding-top: 10px;
+}
+.circles{
+	 flex-direction: column;
+    text-align: center;
+    padding:10;
+}
+.circles1{
+	flex-direction: column;
+     max-height: 90px;
+     margin-top: 90px;
+}
+
+
