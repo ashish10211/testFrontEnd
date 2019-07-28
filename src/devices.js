@@ -18,10 +18,6 @@ import {Circle} from 'react-shapes';
   }
 
   componentWillMount(){
-    console.log(this.state.name)
-     console.log(this.state.email)
-      console.log(this.state.message)
-       console.log(this.state.repoURL)
     this.fetchdata();
      this.fetchToken();
      this.interval = setInterval(() => {
@@ -117,6 +113,7 @@ sendData(){
         <button
             type="button"
             className="notify-btn"
+             onClick={this.sendData.bind(this)}
             ><font color="black">NOTIFY</font></button>
             <button
             type="button"
