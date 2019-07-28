@@ -18,6 +18,10 @@ import {Circle} from 'react-shapes';
   }
 
   componentWillMount(){
+    console.log(this.state.name)
+     console.log(this.state.email)
+      console.log(this.state.message)
+       console.log(this.state.repoURL)
     this.fetchdata();
      this.fetchToken();
      this.interval = setInterval(() => {
@@ -55,11 +59,13 @@ sendData(){
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
+    'Authorization': 'Bearer'+[this.state.tokken]
   },
   body: JSON.stringify({
+    name:this.state.name,
     email:this.state.email,
-    password:this.state.password,
-    
+    repoUrl:this.state.repoURL,
+    message:this.state.message,
   })
 }).then(function (response) {
       console.log(response);
@@ -95,7 +101,7 @@ sendData(){
               <div className="circles1">
           {Array.apply(null, Array(this.state.devicesNum)).map(function(item, i){                                        
                     return (
-                      
+    
                            <Circle r={25} fill={{color:'white'}} stroke={{color:'black'}} strokeWidth={2} />
                       
                     );                
